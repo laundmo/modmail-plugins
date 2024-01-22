@@ -116,6 +116,7 @@ class ExtendedUtils(commands.Cog, name=__plugin_name__):
         This method was adapted from cogs/plugins.py.
         """
         req = self.package_path
+        logger.error(str(Path.home()))
         venv = hasattr(sys, "real_prefix") or hasattr(sys, "base_prefix") or not Path.home().exists() # in a virtual env or docker
         user_install = " --user" if not venv else ""
         proc = await asyncio.create_subprocess_shell(
